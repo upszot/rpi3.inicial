@@ -1,6 +1,13 @@
 # rpi3.inicial
 
-Role de ansible para instalar y configurar Raspberry pi 3.
+Role de ansible para instalar y configurar Raspberry pi.
+
+	- Crea usuario con el mismo nombre y password que el usuario de local host
+	- Crusa key ssh del mismo
+	- Instala Paquetes basicos
+	- Setea vim como editor por defecto
+	- configura sudo para que no pida password
+	- instala docker desde repo oficial paquete de rasbian de la version de la distribucion instalada
 
 Plataformas testeadas:
 - raspbian
