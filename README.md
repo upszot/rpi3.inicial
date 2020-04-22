@@ -9,6 +9,9 @@ Role de ansible para instalar y configurar Raspberry pi.
 	- configura sudo para que no pida password
 	- instala docker desde repo oficial paquete de rasbian de la version de la distribucion instalada
 
+NOTA: Basado en los pasos de instalacion del PeladoNerd con algunos arreglos..
+	  https://gist.github.com/pablokbs/263ed38d0206de2aca7b3f106ba7a5dc
+
 Plataformas testeadas:
 - raspbian
 
