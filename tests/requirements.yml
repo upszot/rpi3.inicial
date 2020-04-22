@@ -1,0 +1,3 @@
+#- src: git@github.com:upszot/rpi3.inicial.git
+#  scm: "git"
+#  version: "master"

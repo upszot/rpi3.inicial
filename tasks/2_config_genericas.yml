@@ -1,0 +1,34 @@
+---
+
+- debug:
+    msg: "---- Realizando Configuraciones genericas  ----"
+
+- name: "Instalar paquetes basicos" 
+  become: yes
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg2
+    - software-properties-common
+    - vim
+    - fail2ban
+    - ntfs-3g
+
+- name: Correct editor default selected
+  become: yes
+  alternatives:
+    name: editor
+    path: /usr/bin/vim.basic
+
+- name: "add NOPASSWD in sudores for group sudo"
+  become: yes
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
