@@ -17,7 +17,7 @@ Plataformas testeadas:
 - Crear o modificar el archivo requirements.yml en el directorio raiz de la receta para incluir el rol.
 
 ```
-- src: 
+- src: git@github.com:upszot/rpi3.inicial.git
   scm: git
   version: "master"
 ```
