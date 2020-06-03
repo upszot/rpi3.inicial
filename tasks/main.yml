@@ -4,6 +4,9 @@
     msg: "---- INICIA ----"
 
 - name: "Include creacion de usuarios"
+  include: 0_hosts.yml
+
+- name: "Include creacion de usuarios"
   include: 1_crear_usuario.yml
 
 - name: "Realiza configuraciones genericas"
