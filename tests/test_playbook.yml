@@ -4,3 +4,5 @@
       ansible_python_interpreter: /usr/bin/python3
   roles:
     - role: rpi3.inicial
+
+

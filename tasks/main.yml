@@ -3,15 +3,18 @@
 - debug:
     msg: "---- INICIA ----"
 
-- name: "Include creacion de usuarios"
-  include: 0_hosts.yml
+# - name: "Include creacion de usuarios"
+#   include: 0_hosts.yml
 
-- name: "Include creacion de usuarios"
-  include: 1_crear_usuario.yml
+# - name: "Include creacion de usuarios"
+#   include: 1_crear_usuario.yml
 
-- name: "Realiza configuraciones genericas"
-  include: 2_config_genericas.yml
+# - name: "Realiza configuraciones genericas"
+#   include: 2_config_genericas.yml
 
-- name: "Instalando y configurando DOCKER"
-  include: 3_add_docker.yml
+# - name: "Instalando y configurando DOCKER"
+#   include: 3_add_docker.yml
+
+- name: "Configurando Bonding"
+  include: 4_bonding.yml
 
