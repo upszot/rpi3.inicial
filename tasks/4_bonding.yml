@@ -2,7 +2,9 @@
 
 - debug:
     msg: " ---- Configurar bonding ----"
-
+  tags:
+      - bonding
+      
 - name: "Instalando paquetes necesarios " 
   become: yes
   package:
@@ -10,25 +12,44 @@
     state: present
   with_items:
     - ifenslave
-
-
+  tags:
+      - bonding
+      
 - name: "add bonding in /etc/modules"
   become: yes
   lineinfile:
     path: /etc/modules
     state: present
     line: 'bonding'
-
+  tags:
+      - bonding
+      
 - name: Add the bonding module
   become: yes
   modprobe:
     name: bonding
     state: present
+  tags:
+      - bonding
 
-- name: configure link aggregation group
+- name: "Upload archivos configuracion"
   become: yes
-  net_linkagg:
-    name: bond0
-    members:
-      - eth0
-      - wlan0
+  copy:
+    src: "{{ item }}"
+    dest: /etc/network/interfaces.d/bond0
+    owner: root
+    group: root
+    #mode: 0755
+  with_items:
+    - bond0
+  tags:
+      - bonding
+
+- name: Restart networking  service
+  become: yes
+  service:
+    name: networking
+    state: restarted
+  tags:
+      - bonding
+
