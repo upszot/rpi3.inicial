@@ -13,7 +13,8 @@ Chequeo_Sintaxis:
   tags:
     - docker
   script:
-    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-galaxy install -r tests/requirements.yml --force && ansible-playbook -i tests/test_inventory --syntax-check tests/test_playbook.yml"
+    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-playbook -i tests/test_inventory --syntax-check tests/test_playbook.yml"
+#    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-galaxy install -r tests/requirements.yml --force && ansible-playbook -i tests/test_inventory --syntax-check tests/test_playbook.yml"
     
 Ejecucion_IaC:
   stage: Ejecucion
@@ -23,7 +24,9 @@ Ejecucion_IaC:
     - "cd tests/"
     - "vagrant up"
     - "cd .."
-    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-galaxy install -r tests/requirements.yml --force && ansible-playbook -i tests/test_inventory tests/test_playbook.yml"
+    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-playbook -i tests/test_inventory tests/test_playbook.yml"
+#    - "docker run -t -v $CI_PROJECT_DIR:/etc/ansible chelobarreto/ansible:latest cd /etc/ansible && ansible-galaxy install -r tests/requirements.yml --force && ansible-playbook -i tests/test_inventory tests/test_playbook.yml"
+
   artifacts:
     paths:
       - tests/.vagrant
