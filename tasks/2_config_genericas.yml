@@ -33,6 +33,7 @@
     line: '%sudo ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
 
+#no me esta tomando bien los alias...
 - name: "Upload archivos configuracion"
   become: yes
   copy:
